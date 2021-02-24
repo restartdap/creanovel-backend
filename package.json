@@ -1,0 +1,17 @@
+{
+  "name": "creanovel-backend",
+  "version": "1.0.0",
+  "description": "API REST Backend project for CreaNovel. Using Node/Express",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1"
+  }
+}
