@@ -3,7 +3,7 @@ const Novela = require('../models/novela.model');
 const { primeraLetraMayuscula } = require("../helpers/helpers");
 
 const getNovela = (req = request, res = response) => {
-    const id = Number(req.params.id);
+    const id = req.params.id;
 
     Novela.findById(id, (err, dbNovela) => {
         if (err) {
