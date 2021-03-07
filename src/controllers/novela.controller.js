@@ -1,12 +1,15 @@
 const { request, response } = require('express');
 const Novela = require('../models/novela.model');
+const { primeraLetraMayuscula } = require("../helpers/helpers");
 
 const getNovela = (req = request, res = response) => {
 
 };
 
 const postNovela = (req = request, res = response) => {
-    const { titulo, descripcion, estado } = req.body;
+    const body = req.body;
+    const titulo = primeraLetraMayuscula(body.titulo.toLowerCase());
+    const { descripcion, estado } = body;
 
     const novela = new Novela({
         titulo,
