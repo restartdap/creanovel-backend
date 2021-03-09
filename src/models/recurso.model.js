@@ -7,6 +7,10 @@ const recursosValidos = {
 }
 
 const recursoSchema = new Schema({
+    escena: {
+        type: mongoose.Types.ObjectId,
+        refPath: 'Escena'
+    },
     recurso: {
         type: mongoose.Types.ObjectId,
         default: null,

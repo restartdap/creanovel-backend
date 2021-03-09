@@ -19,7 +19,11 @@ const novelaSchema = Schema({
         required: true,
         default: false,
         trim: true
-    }
+    },
+    escenas: [{
+        type: Schema.Types.ObjectId,
+        ref: "Escena"
+    }]
 });
 
 module.exports = mongoose.model("Novela", novelaSchema);
