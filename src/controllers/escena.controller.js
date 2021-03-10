@@ -20,6 +20,22 @@ postEscena = async (req = request, res = response) => {
     }
 };
 
+const getEscenas = async (req = request, res = response) => {
+    try {
+        const escenas = await escenaServices.getAllEscenasWithRecursos();
+        return res.json({
+            ok: true,
+            escenas
+        });
+    } catch (error) {
+        return res.status(400).json({
+            ok: false,
+            error
+        });
+    }
+};
+
 module.exports = {
-    postEscena
+    postEscena,
+    getEscenas
 };
