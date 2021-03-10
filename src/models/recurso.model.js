@@ -2,23 +2,23 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const recursosValidos = {
-    values: ["CONVERSACION", "DECISION", "ANIMACION", "ESCENA"],
+    values: ["conversacion", "decision", "animacion", "imagen", null],
     message: "{VALUE} no es un tipo de recurso valido"
-}
+};
 
 const recursoSchema = new Schema({
     escena: {
         type: mongoose.Types.ObjectId,
         refPath: 'Escena'
     },
-    recurso: {
+    recursoActual: {
         type: mongoose.Types.ObjectId,
-        default: null,
+        required: true,
         refPath: 'tipoRecurso'
     },
-    tipoRecurso: {
+    tipoRecursoActual: {
         type: String,
-        default: null,
+        required: true,
         enum: recursosValidos
     },
     recursoAnterior: {
