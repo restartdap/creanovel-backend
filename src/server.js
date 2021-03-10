@@ -8,6 +8,7 @@ class Server {
         this.port = process.env.PORT;
         this.novelasPath = "/api/novelas";
         this.escenasPath = "/api/escenas";
+        this.recursosPath = "/api/recursos";
 
         this.datadase();
 
@@ -28,6 +29,7 @@ class Server {
     routes() {
         this.app.use(this.novelasPath, require('./routes/novela.route'));
         this.app.use(this.escenasPath, require('./routes/escena.route'));
+        this.app.use(this.recursosPath, require('./routes/recurso.route'));
     }
 
     listen() {
