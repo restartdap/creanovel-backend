@@ -1,7 +1,8 @@
 const { Router } = require('express');
 const router = Router();
-const { postEscena } = require('../controllers/escena.controller');
+const { postEscena, getEscenas } = require('../controllers/escena.controller');
 
 router.post("/", postEscena);
+router.get("/", getEscenas);
 
 module.exports = router;
