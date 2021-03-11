@@ -3,10 +3,10 @@ const recursoServices = require('../services/recurso.services');
 
 const postRecurso = async (req = request, res = response) => {
     try {
-        const { recursoInfo, dataRecurso } = req.body;
+        const { recursoInfo, recursoData } = req.body;
         const dbRecurso = await recursoServices.createRecurso(
             recursoInfo,
-            dataRecurso
+            recursoData
         );
         return res.json({
             ok: true,
@@ -20,6 +20,23 @@ const postRecurso = async (req = request, res = response) => {
     }
 };
 
+const getRecurso = async (req = request, res = response) => {
+    try {
+        const id = req.params.id.toString();
+        const recurso = await recursoServices.findById(id);
+        return res.json({
+            ok: true,
+            recurso
+        });
+    } catch (error) {
+        res.status(400).json({
+            ok: false,
+            error
+        });
+    }
+};
+
 module.exports = {
+    getRecurso,
     postRecurso
 }
