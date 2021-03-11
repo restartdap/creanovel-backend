@@ -22,7 +22,7 @@ const postEscena = async (req = request, res = response) => {
 
 const getEscenas = async (req = request, res = response) => {
     try {
-        const escenas = await escenaServices.getAllEscenasWithRecursos();
+        const escenas = await escenaServices.getAllEscenas();
         return res.json({
             ok: true,
             escenas

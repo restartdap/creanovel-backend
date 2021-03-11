@@ -19,7 +19,7 @@ const getNovela = async (req = request, res = response) => {
 
 const getNovelas = async (req = request, res = response) => {
     try {
-        const novelas = await novelaServices.getAllNovelasWithEscenas();
+        const novelas = await novelaServices.getAllNovelas();
         return res.json({
             ok: true,
             novelas
