@@ -24,6 +24,15 @@ exports.createRecurso = async (recursoInfo, recursoData) => {
     }
 };
 
+exports.findById = async (recursoId) => {
+    try {
+        return await recursoModel.findById(recursoId).populate('recursoActual').exec();
+    } catch (error) {
+        console.error(error);
+        throw error;
+    }
+};
+
 async function saveRecursoContent(tipoRecurso, data) {
     try {
         switch (tipoRecurso) {
