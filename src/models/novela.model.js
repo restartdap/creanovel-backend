@@ -17,8 +17,7 @@ const novelaSchema = Schema({
     estado: {
         type: Boolean,
         required: true,
-        default: false,
-        trim: true
+        default: false
     },
     escenas: [{
         type: Schema.Types.ObjectId,
