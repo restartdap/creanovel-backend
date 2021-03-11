@@ -1,7 +1,7 @@
 const { request, response } = require('express');
 const escenaServices = require('../services/escena.services');
 
-postEscena = async (req = request, res = response) => {
+const postEscena = async (req = request, res = response) => {
     try {
         const { novela, recursos } = req.body;
         const escena = await escenaServices.createEscena({
