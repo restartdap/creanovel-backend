@@ -14,21 +14,11 @@ const recursoSchema = new Schema({
     recursoActual: {
         type: mongoose.Types.ObjectId,
         required: true,
-        refPath: 'tipoRecurso'
+        refPath: 'tipoRecursoActual'
     },
     tipoRecursoActual: {
         type: String,
         required: true,
-        enum: recursosValidos
-    },
-    recursoAnterior: {
-        type: mongoose.Types.ObjectId,
-        default: null,
-        refPath: 'tipoRecursoAnterior'
-    },
-    tipoRecursoAnterior: {
-        type: String,
-        default: null,
         enum: recursosValidos
     }
 });
