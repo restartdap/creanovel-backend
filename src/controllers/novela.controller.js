@@ -1,5 +1,6 @@
 const { request, response } = require('express');
 const novelaServices = require('../services/novela.services');
+const { validationResult } = require('express-validator');
 
 const getNovela = async (req = request, res = response) => {
     try {

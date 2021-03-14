@@ -1,5 +1,6 @@
 const { request, response } = require('express');
 const escenaServices = require('../services/escena.services');
+const { validationResult } = require('express-validator');
 
 const postEscena = async (req = request, res = response) => {
     try {

@@ -1,5 +1,6 @@
 const { request, response } = require('express');
 const recursoServices = require('../services/recurso.services');
+const { validationResult } = require('express-validator');
 
 const postRecurso = async (req = request, res = response) => {
     try {
