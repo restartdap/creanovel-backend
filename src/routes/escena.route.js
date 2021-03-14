@@ -1,8 +1,9 @@
 const { Router } = require('express');
 const router = Router();
-const { postEscena, getEscenas } = require('../controllers/escena.controller');
+const { check } = require('express-validator');
+const escenaController = require('../controllers/escena.controller');
 
-router.post("/", postEscena);
-router.get("/", getEscenas);
+router.post("/", escenaController.postEscena);
+router.get("/", escenaController.getEscenas);
 
 module.exports = router;
