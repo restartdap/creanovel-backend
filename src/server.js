@@ -9,6 +9,8 @@ class Server {
         this.novelasPath = "/api/novelas";
         this.escenasPath = "/api/escenas";
         this.recursosPath = "/api/recursos";
+        this.usuariosPath = "/api/usuarios";
+        this.lecturasPath = "/api/lecturas";
 
         this.datadase();
 
@@ -30,6 +32,8 @@ class Server {
         this.app.use(this.novelasPath, require('./routes/novela.route'));
         this.app.use(this.escenasPath, require('./routes/escena.route'));
         this.app.use(this.recursosPath, require('./routes/recurso.route'));
+        this.app.use(this.usuariosPath, require('./routes/usuario.route'));
+        this.app.use(this.lecturasPath, require('./routes/lectura.route'));
     }
 
     listen() {
