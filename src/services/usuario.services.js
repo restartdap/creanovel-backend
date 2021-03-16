@@ -18,13 +18,12 @@ exports.createUsuario = async (usuarioInfo) => {
     }
 };
 
-exports.logIn = async (username, password) => {
+exports.checkUserPassword = async (username, password) => {
     try {
         const dbUsuario = await usuarioModel.findOne({ username, password }, "_id name email username lecturas").exec();
         if (!dbUsuario) {
             throw { message: "Los datos son incorrectos o no existe el usuario", status: 400 };
         }
-
         return dbUsuario;
     } catch (error) {
         throw error;
