@@ -11,6 +11,7 @@ class Server {
         this.recursosPath = "/api/recursos";
         this.usuariosPath = "/api/usuarios";
         this.lecturasPath = "/api/lecturas";
+        this.authPath = "/api/auth";
 
         this.datadase();
 
@@ -34,6 +35,7 @@ class Server {
         this.app.use(this.recursosPath, require('./routes/recurso.route'));
         this.app.use(this.usuariosPath, require('./routes/usuario.route'));
         this.app.use(this.lecturasPath, require('./routes/lectura.route'));
+        this.app.use(this.authPath, require('./routes/auth.route'));
     }
 
     listen() {
