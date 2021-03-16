@@ -12,7 +12,16 @@ exports.createUsuario = async (usuarioInfo) => {
             novelas: []
         });
         dbUsuario.lecturas = dbLectura._id;
-        return await dbUsuario.save();
+        await dbUsuario.save();
+        const payload = {
+            usuario: {
+                id: dbUsuario._id
+            }
+        };
+        const token = await jwt.sign(payload, process.env.SECRET_KEY, {
+            expiresIn: 3600
+        });
+        return token;
     } catch (error) {
         throw error;
     }

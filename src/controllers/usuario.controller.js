@@ -6,30 +6,16 @@ const jwt = require('jsonwebtoken');
 const postUsuario = async (req = request, res = response) => {
     try {
         const { name, username, email, password } = req.body.datos;
-        const dbUsuario = await usuarioServices.createUsuario({
+        const token = await usuarioServices.createUsuario({
             name,
             username,
             email,
             password
         });
 
-        const payload = {
-            usuario: {
-                id: dbUsuario._id
-            }
-        };
-
-        jwt.sign(payload, process.env.SECRET_KEY, {
-            expiresIn: 3600
-        }, (error, token) => {
-            if (error) {
-                throw error;
-            }
-
-            return res.status(200).json({
-                ok: true,
-                token
-            });
+        return res.status(200).json({
+            ok: true,
+            token
         });
     } catch (error) {
         return res.status(400).json({
